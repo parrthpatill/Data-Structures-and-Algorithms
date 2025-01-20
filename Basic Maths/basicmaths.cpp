@@ -27,18 +27,17 @@ int countDigits(int n){
 	 	}
 	 	return revNum;
 	 }
-
-	 int reverse(int x) {
-        long revNum = 0, r;
-        while (x != 0){
-            r = x % 10;
-            revNum = revNum * 10 + r;
-            x /= 10;
-        }
-        if (revNum > INT_MAX || revNum < INT_MIN) return 0;
-        else return revNum;
+int reverse(int x) {
+    long revNum = 0, r;
+    while (x != 0){
+        r = x % 10;
+        revNum = revNum * 10 + r;
+        x /= 10;
     }
-
+  		if (revNum > INT_MAX || revNum < INT_MIN) return 0;
+  		else return revNum;
+	}
+	
     bool isPalindrome(int x) {
         if (x < 0) return false;
         if (x < 10) return true;
@@ -47,12 +46,12 @@ int countDigits(int n){
 	 	while (x != 0) {
 	 		revNum = (revNum * 10) + x%10;
 	 		x /= 10;
-    }
+    	}
     if (temp == revNum) return true;
 	else return false;
-	 }
+	}
 
-	 bool checkArmstrong(int n){
+bool checkArmstrong(int n){
 	if (n < 1) return false;
 	int r, cnt = 0;
 	int temp = n;
@@ -66,22 +65,23 @@ int countDigits(int n){
         }
     for (auto it : v){
     	cout << it;
-    }
-		for (int i : v){
-			armNum += pow(i, cnt);
+    	}
+	for (int i : v){
+		armNum += pow(i, cnt);
 		}
-		if (armNum == temp) return true;
-        else return false;
-}
+	if (armNum == temp) return true;
+    else return false;
+	}
+
 int sumOfAllDivisors(int n){
-int sum=1, i, j;
+	int sum=1, i, j;
     for (i=2; i=n; i++){
         for(j=1; j=sqrt(i); j++){
             if(i%j==0){
                 if(j==i/j) sum+=j;
                 else sum += j + i/j;
             } 
-        }
+       	}
     }
     return sum;
 }
@@ -117,5 +117,6 @@ bool isPrime(int n)
 
 
 int main (){
-	cout << gcdf(20, 10);
+	
+	return 0;
 }
