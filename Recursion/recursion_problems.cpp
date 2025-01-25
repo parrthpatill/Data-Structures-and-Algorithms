@@ -95,13 +95,27 @@ int fib(int n) {
         if(n <= 1) return n;
         return fib(n-1) + fib(n-2);
     }
-    
+
+// printing subsequence
+    void subsequence(int i, vector<int> sub, int n, vector<int> arr){
+        if(i >= n){
+            for(auto it: sub){
+                cout << it << " ";
+            }
+            cout << endl;
+            return;
+        }
+        sub.push_back(arr[i]);
+        subsequence(i+1, sub, n, arr);
+        sub.pop_back();
+        subsequence(i+1, sub, n, arr);
+    }
+
 int main(){
-	return 0;
-	vector<int> arr = {1,2,3,4};
-	reverseArray(arr);
-
-
-	
+	vector<int> arr = {1,2,3};
+    int n = 3;
+    vector<int> sub = {};
+    subsequence(0, sub, n, arr);
+    return 0;
 }
 
