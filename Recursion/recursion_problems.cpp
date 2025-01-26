@@ -111,11 +111,70 @@ int fib(int n) {
         subsequence(i+1, sub, n, arr);
     }
 
+// printing subsequences whose sum is k
+    void subsequenceSum(int i, vector<int> sub, int n, vector<int> arr, int sum, int k){
+        if(i >= n){
+            if (sum == k){
+                for(auto it: sub){
+                    cout << it << " ";
+                }
+                cout << endl;
+            }
+            return;
+        }
+        sub.push_back(arr[i]);
+        sum += arr[i];
+        subsequenceSum(i+1, sub, n, arr, sum, k);
+        sub.pop_back();
+        sum -= arr[i];
+        subsequenceSum(i+1, sub, n, arr, sum, k);
+    }
+// printing any one subseqence whose sum is k
+bool subsequenceSumAnyOne(int i, vector<int> sub, int n, vector<int> arr, int sum, int k){
+        if(i >= n){
+            if (sum == k){
+                for(auto it: sub){
+                    cout << it << " ";
+                }
+                cout << endl;
+                return true;
+            }
+            else return false;
+        }
+        sub.push_back(arr[i]);
+        sum += arr[i];
+        if(subsequenceSumAnyOne(i+1, sub, n, arr, sum, k) == true) return true;
+        sub.pop_back();
+        sum -= arr[i];
+        if(subsequenceSumAnyOne(i+1, sub, n, arr, sum, k) == true) return true;
+
+        return false;
+    }
+
+// printing count of subsequences whose sum is k
+    int subsequenceSumCount(int i, vector<int> sub, int n, vector<int> arr, int sum, int k){
+        if(i >= n){
+            if (sum == k){
+                return 1;
+            }
+            else return 0;
+        }
+        sub.push_back(arr[i]);
+        sum += arr[i];
+        int l = subsequenceSumCount(i+1, sub, n, arr, sum, k);
+        sub.pop_back();
+        sum -= arr[i];
+        int r = subsequenceSumCount(i+1, sub, n, arr, sum, k);
+
+        return l + r;
+    }
+
 int main(){
-	vector<int> arr = {1,2,3};
+	vector<int> arr = {1,2,1};
     int n = 3;
+    int k = 2;
     vector<int> sub = {};
-    subsequence(0, sub, n, arr);
+    cout << subsequenceSumCount(0, sub, n, arr, 0, k);
     return 0;
 }
 
