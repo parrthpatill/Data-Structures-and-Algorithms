@@ -44,7 +44,7 @@ class ArraysEasy{
 	public static void main(String[] args){
 
 		ArraysEasy obj = new ArraysEasy();
-		int[] nums = {-13, -3, 2, 4, 7, 16, 2, 8};
+		int[] nums = {-13, -3, 2, 4, 7, 75, 2, 8};
 		System.out.println(obj.secondSmallestElement(nums));
 	}
 }
