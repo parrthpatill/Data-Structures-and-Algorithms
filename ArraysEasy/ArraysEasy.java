@@ -41,10 +41,21 @@ class ArraysEasy{
 		return secondSmallest;
 	}
 
+// check if the array is sorted
+	boolean checkSorted(int[] arr){
+		for (int i = 1; i < arr.length; i++){
+			if(arr[i-1] < arr[i]){}
+			else{
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public static void main(String[] args){
 
 		ArraysEasy obj = new ArraysEasy();
-		int[] nums = {-13, -3, 2, 4, 7, 75, 2, 8};
-		System.out.println(obj.secondSmallestElement(nums));
+		int[] nums = {1,2,3,4,5};
+		System.out.println(obj.checkSorted(nums));
 	}
 }
