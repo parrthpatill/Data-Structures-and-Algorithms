@@ -101,11 +101,42 @@ class ArraysEasy{
 		return arr;
 	}
 
+// rotate array left by d element brute force
+	int[] rotateArrayLeftByDElementsBruteForce(int arr[], int d){
+		int[] temp = new int[d];
+		int n = arr.length;
+		for(int i =0; i<d; i++){
+			temp[i] = arr[i];
+		}
+		for(int i =d; i<n; i++){
+			arr[i-d] = arr[i];
+		}
+		for(int i =n-d; i<n; i++){
+			arr[i] = temp[i-(n-d)];
+		}
+		return arr;
+	}
+
+// int[] rotateArrayRightByDElementsBruteForce(int arr[], int d){
+// 		int[] temp = new int[d];
+// 		int n = arr.length;
+// 		for(int i =n-d; i<n; i++){
+// 			temp[i-(n-d)] = arr[i];
+// 		}
+// 		for(int i =d; i<d; i++){
+// 			arr[i] = arr[i - d];
+// 		}
+// 		for(int i =0; i<d; i++){
+// 			arr[i] = temp[(d-1)];
+// 		}
+// 		return arr;
+// 	}	
+
 	public static void main(String[] args){
 
 		ArraysEasy obj = new ArraysEasy();
 		int[] nums = {1,1,1,2,2,3,4,4};
-		obj.rotateArrayRightByOneElement(nums);
+		obj.rotateArrayLeftByDElementsBruteForce(nums, 3);
 		System.out.println(Arrays.toString(nums));
 	}
 }
