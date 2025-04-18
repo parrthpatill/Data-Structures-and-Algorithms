@@ -1,3 +1,4 @@
+import java.util.Arrays;
 class ArraysEasy{
 
 //Largets element in an array :
@@ -78,10 +79,33 @@ class ArraysEasy{
 		return i+1;
 	}
 
+//rotate array left by 1 element
+	int[] rotateArrayLeftByOneElement(int[] arr){
+		int temp = arr[0];
+		int n = arr.length;
+		for(int i = 1; i < n; i++){
+			arr[i-1] = arr[i];
+		}
+		arr[n-1] = temp;
+		return arr;
+	}
+
+//rotate right by one element
+	int[] rotateArrayRightByOneElement(int[] arr){
+		int n = arr.length;
+		int temp = arr[n-1];
+		for(int i = n-1; i > 0; i--){
+			arr[i] = arr[i-1];
+		}
+		arr[0] = temp;
+		return arr;
+	}
+
 	public static void main(String[] args){
 
 		ArraysEasy obj = new ArraysEasy();
 		int[] nums = {1,1,1,2,2,3,4,4};
-		System.out.println(obj.removedDuplicates(nums));
+		obj.rotateArrayRightByOneElement(nums);
+		System.out.println(Arrays.toString(nums));
 	}
 }
