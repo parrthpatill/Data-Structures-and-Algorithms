@@ -1,5 +1,9 @@
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.TreeSet;
+import java.util.Set;
+import java.util.Iterator;
+
 
 class ArraysEasy{
 
@@ -200,11 +204,113 @@ class ArraysEasy{
 		return arr;
 	}
 
+// union of two sorted arrays:
+
+	int[] unionOfSortedArraysBruteForce(int[] arr1, int[] arr2){
+		int n1 = arr1.length;
+		int n2 = arr2.length;
+		Set<Integer> s = new TreeSet<>();
+		for(int i = 0; i < n1; i++){
+			s.add(arr1[i]);
+		}
+		for(int i = 0; i < n2; i++){
+			s.add(arr2[i]);
+		}
+		int i = 0;
+		int[] arr = new int[s.size()];
+		Iterator<Integer> itr = s.iterator();
+		while(itr.hasNext()){
+			arr[i++] = itr.next();
+		}
+		return arr;
+	}
+
+	ArrayList<Integer> unionOfSortedArraysOptimal(int[] arr1, int[] arr2){
+		int n1 = arr1.length;
+		int n2 = arr2.length;
+		ArrayList<Integer> unionArr = new ArrayList<Integer>();
+		int i = 0, j = 0;
+		while(i < n1 && j < n2){
+			if(arr1[i] <= arr2[j]){
+				if(unionArr.size() == 0 ||
+				unionArr.get(unionArr.size() - 1) != arr1[i]){
+					unionArr.add(arr1[i]);
+				}
+				i++;
+			} else{
+				if(unionArr.size() == 0 ||
+				unionArr.get(unionArr.size() - 1) != arr2[j]){
+					unionArr.add(arr2[j]);
+				}
+				j++;
+			}
+		}
+		while(i < n1){
+			if(unionArr.size() == 0 ||
+				unionArr.get(unionArr.size() - 1) != arr1[i]){
+					unionArr.add(arr1[i]);
+				}
+				i++;
+		}
+		while(j < n2){
+			if(unionArr.size() == 0 ||
+				unionArr.get(unionArr.size() - 1) != arr2[j]){
+					unionArr.add(arr2[j]);
+				}
+				j++;
+		}
+		return unionArr;
+	}
+
+// intersection of two sorted arrays:
+	ArrayList<Integer> intersectionOfSortedArraysBruteForce(int[] arr1, int[] arr2){
+		int n1 = arr1.length;
+		int n2 = arr2.length;
+		ArrayList<Integer> ansArr = new ArrayList<Integer>();
+		int[] vis = new int[n2];
+		for(int i = 0; i < n2; i++){
+			vis[i] = 0;
+		}
+		for(int i = 0; i < n1; i++){
+			for(int j = 0;  j < n2; j++){
+				if(arr1[i] == arr2[j] && vis[j] == 0){
+					ansArr.add(arr1[i]);
+					vis[j] = 1;
+					break;
+				}
+				if(arr2[j] > arr1[i]) break;
+			}
+		}
+		return ansArr;
+	}
+
+	ArrayList<Integer> intersectionOfSortedArraysOptimal(int[] arr1, int[] arr2){
+		int n1 = arr1.length;
+		int n2 = arr2.length;
+		int i = 0, j = 0;
+		ArrayList<Integer> ansArr = new ArrayList<Integer>();
+		while(i <n1 && j <n2){
+			if(arr1[i] < arr2[j]){
+			i++;
+		}else if(arr1[j] < arr1[i]){
+			j++;
+		}else{
+			ansArr.add(arr1[i]);
+			i++;
+			j++;
+		}
+		}
+		return ansArr;
+	}	
+	
+
 	public static void main(String[] args){
 
 		ArraysEasy obj = new ArraysEasy();
-		int[] nums = {1,2,3,3,4,5,6,1};
-		obj.moveZerosToTheEndOfTheArrayOptimal(nums);
-		System.out.println(Arrays.toString(nums));
+		int[] arr1 = {1,2,3,3,4,5,6};
+		int[] arr2 = {1,2,3,3,4,6,7,8,9,100};
+		ArrayList<Integer> ans =  new ArrayList<Integer>();
+		ans = obj.intersectionOfSortedArraysOptimal(arr1, arr2);
+		System.out.println(ans.toString());
 	}
 }
