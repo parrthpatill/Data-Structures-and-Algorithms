@@ -117,7 +117,8 @@ class ArraysEasy{
 		return arr;
 	}
 
-int[] rotateArrayRightByDElementsBruteForce(int arr[], int d){
+// rotate array right by d element brute force
+	int[] rotateArrayRightByDElementsBruteForce(int arr[], int d){
 		int[] temp = new int[d];
 		int n = arr.length;
 		for(int i =n-d; i<n; i++){
@@ -130,13 +131,39 @@ int[] rotateArrayRightByDElementsBruteForce(int arr[], int d){
 			arr[i] = temp[i];
 		}
 		return arr;
-	}	
+	}
+
+// rotate array by d elements to the left/right(optimal approach)
+	void reverseArrayForRotation(int[] arr, int start, int end){
+		while(start<=end){
+			int temp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = temp;
+			start++;
+			end--;
+		}
+	}
+	int[] rotateArrayLeftByDElementsOptimal(int arr[], int d){
+		int n = arr.length;
+		reverseArrayForRotation(arr, 0, d-1);
+		reverseArrayForRotation(arr, d, n-1);
+		reverseArrayForRotation(arr, 0, n-1);
+		return arr;
+	}
+	int[] rotateArrayRightByDElementsOptimal(int arr[], int d){
+		int n = arr.length;
+		reverseArrayForRotation(arr, 0, n-1);
+		reverseArrayForRotation(arr, 0, d-1);
+		reverseArrayForRotation(arr, d, n-1);
+		return arr;
+	}
+
 
 	public static void main(String[] args){
 
 		ArraysEasy obj = new ArraysEasy();
 		int[] nums = {1,2,3,4,5,6};
-		obj.rotateArrayLeftByDElementsBruteForce(nums, 3);
+		obj.rotateArrayRightByDElementsOptimal(nums, 1);
 		System.out.println(Arrays.toString(nums));
 	}
 }
