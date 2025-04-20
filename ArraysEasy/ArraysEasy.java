@@ -301,16 +301,105 @@ class ArraysEasy{
 		}
 		}
 		return ansArr;
-	}	
-	
+	}
+
+// missing number in the array, range = 1 to n
+	int missingNumberBruteForce(int[] arr, int n){
+		for(int i = 1; i <= n; i++){
+			int flag = 0;
+			for(int j = 0; j < n-2; j++){
+				if(arr[j] == i){
+					flag++;
+					break;
+				}
+			}
+			if(flag == 0){
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	int missingNumberBetter(int[] arr, int n){
+		int[] hash = new int[n+1];
+		Arrays.fill(hash, 0);
+		for(int i = 0; i <= n-2; i++){
+			hash[arr[i]]++;
+		}
+		for(int i = 1; i <= n; i++){
+			if(hash[i] == 0){
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	int missingNumberOptimalSum(int[] arr, int n){
+		int sum =0;
+		for(int i = 0; i < n-1; i++){
+			sum += arr[i];
+		}
+		return n*(n-1)/2 -sum;
+	}
+
+	int missingNumberOptimalXOR(int[] arr, int n){
+		int xor1 = 0;
+		int xor2 = 0;
+		for(int i = 0; i< n-1; i++){
+			xor1 = xor1^arr[i];
+			xor2 = xor2^(i+1);
+		}
+		xor2 = xor2^n;
+		return xor1^xor2;
+	}
+
+// maximum consecutive ones
+	int maximumConsecutiveOnes(int[] arr){
+		int count = 0;
+		int maximum = 0;
+		for(int i = 0; i < arr.length; i++){
+			if(arr[i] == 1){
+				count++;
+				maximum = Integer.max(maximum, count);
+			} else{
+				count = 0;
+			}
+		}
+		return maximum;
+	}
+
+// element that appears once among doubles
+	int singleElementInDoublesBruteForce(int[] arr){
+		int n = arr.length;
+		int num, count;
+		for(int i = 0; i < n; i++){
+			num = arr[i];
+			count = 0;
+			for(int j = 0; j < n; j++){
+				if(arr[j] == num){
+					count++;
+				}
+			}
+			if(count == 1) return arr[i];
+		}
+		return -1;
+	}
+
+	int singleElementInDoublesOptimal(int[] arr){
+		int xor = 0;
+		for(int i = 0; i < arr.length; i++){
+			xor = xor^arr[i];
+		}
+		return xor;
+	}
 
 	public static void main(String[] args){
 
 		ArraysEasy obj = new ArraysEasy();
-		int[] arr1 = {1,2,3,3,4,5,6};
+		int[] arr1 = {1,1,2,3,2,4,4,3,5,6,7,7,6};
 		int[] arr2 = {1,2,3,3,4,6,7,8,9,100};
-		ArrayList<Integer> ans =  new ArrayList<Integer>();
-		ans = obj.intersectionOfSortedArraysOptimal(arr1, arr2);
-		System.out.println(ans.toString());
+		// ArrayList<Integer> ans =  new ArrayList<Integer>();
+		int maxOnes = obj.singleElementInDoublesOptimal(arr1);
+		System.out.println(maxOnes);
 	}
 }
