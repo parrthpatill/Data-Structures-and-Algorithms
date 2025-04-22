@@ -4,6 +4,8 @@ import java.util.TreeSet;
 import java.util.Set;
 import java.util.Iterator;
 
+import java.util.*;
+
 
 class ArraysEasy{
 
@@ -432,13 +434,37 @@ class ArraysEasy{
 		return maxLen;
 	}
 
+// Longest subarray with sum K (Positives + Negatives)
+	int longestSubarrayWithSumKPositivesAndNegatives(int[] arr, int k){
+		long preSum = 0;
+		int maxLen = 0;
+		Map<Long, Integer> sumMap = new HashMap<Long, Integer>();
+
+		for(int i = 0; i < arr.length; i++){
+			preSum += arr[i];
+
+			if(preSum == k){
+				maxLen = Integer.max(maxLen, i + 1);
+			}
+
+			long rem = preSum - k;
+			if(sumMap.containsKey(rem)){
+				maxLen = Integer.max(maxLen, i - sumMap.get(rem));
+			}
+			if(!sumMap.containsKey(preSum)){
+				sumMap.put(preSum, i);
+			}
+		}
+		return maxLen;
+	}
+
 	public static void main(String[] args){
 
 		ArraysEasy obj = new ArraysEasy();
 		int[] arr1 = {1,2,3,1,1,1};
 		int[] arr2 = {1,2,3,3,4,6,7,8,9,100};
 		// ArrayList<Integer> ans =  new ArrayList<Integer>();
-		int maxOnes = obj.lengthOfLongestSubarrayWithSumKOptimal(arr1, 3);
+		int maxOnes = obj.longestSubarrayWithSumKPositivesAndNegatives(arr1, 3);
 		System.out.println(maxOnes);
 	}
 }
