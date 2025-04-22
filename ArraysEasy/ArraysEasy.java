@@ -395,7 +395,7 @@ class ArraysEasy{
 
 // Longest subarray with given sum K(positives)
 
-	int lengthOfLongestSubarrayWithSumK(int[] arr, int k){
+	int lengthOfLongestSubarrayWithSumKBruteForce(int[] arr, int k){
 		int n = arr.length;
 		int maxLen = 0;
 		for(int i = 0; i < n; i++){
@@ -411,13 +411,34 @@ class ArraysEasy{
 		return maxLen;
 	}
 
+	int lengthOfLongestSubarrayWithSumKOptimal(int[] arr, int k){
+		int n = arr.length;
+		int maxLen = 0;
+		int left = 0;
+		int right = 0;
+		int sum = arr[0];
+		while(right < n){
+
+			while(left < n && sum > k){
+				sum -= arr[left];
+				left++;
+			}
+			if(sum == k){
+				maxLen = Integer.max(maxLen, right - left +1);
+			}
+			right++;
+			if(right < n) sum += arr[right];
+		}
+		return maxLen;
+	}
+
 	public static void main(String[] args){
 
 		ArraysEasy obj = new ArraysEasy();
-		int[] arr1 = {1,2,3,1,0,0,1,1};
+		int[] arr1 = {1,2,3,1,1,1};
 		int[] arr2 = {1,2,3,3,4,6,7,8,9,100};
 		// ArrayList<Integer> ans =  new ArrayList<Integer>();
-		int maxOnes = obj.lengthOfLongestSubarrayWithSumK(arr1, 3);
+		int maxOnes = obj.lengthOfLongestSubarrayWithSumKOptimal(arr1, 3);
 		System.out.println(maxOnes);
 	}
 }
