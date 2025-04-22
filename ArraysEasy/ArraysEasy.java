@@ -303,7 +303,7 @@ class ArraysEasy{
 		return ansArr;
 	}
 
-// missing number in the array, range = 1 to n
+// single Element In Doubles Optimal
 	int missingNumberBruteForce(int[] arr, int n){
 		for(int i = 1; i <= n; i++){
 			int flag = 0;
@@ -393,13 +393,31 @@ class ArraysEasy{
 		return xor;
 	}
 
+// Longest subarray with given sum K(positives)
+
+	int lengthOfLongestSubarrayWithSumK(int[] arr, int k){
+		int n = arr.length;
+		int maxLen = 0;
+		for(int i = 0; i < n; i++){
+			int sum = 0;
+			for(int j = i; j < n; j++){
+				sum += arr[j];
+				if(sum == k){
+					maxLen = Integer.max(maxLen, j-i+1);
+				}
+			}
+		}
+		if(maxLen == 0) return -1;
+		return maxLen;
+	}
+
 	public static void main(String[] args){
 
 		ArraysEasy obj = new ArraysEasy();
-		int[] arr1 = {1,1,2,3,2,4,4,3,5,6,7,7,6};
+		int[] arr1 = {1,2,3,1,0,0,1,1};
 		int[] arr2 = {1,2,3,3,4,6,7,8,9,100};
 		// ArrayList<Integer> ans =  new ArrayList<Integer>();
-		int maxOnes = obj.singleElementInDoublesOptimal(arr1);
+		int maxOnes = obj.lengthOfLongestSubarrayWithSumK(arr1, 3);
 		System.out.println(maxOnes);
 	}
 }
