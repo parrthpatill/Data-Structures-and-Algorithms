@@ -45,14 +45,34 @@ class ArraysMedium{
 		return false;
 
 	}
-
+// Sort an array of 0s, 1s, 2s
+	void sort012Better(int[] arr){
+		int countZero=0, countOne=0;
+		int n = arr.length;
+		for(int i=0; i<n; i++){
+			if(arr[i] == 0) countZero++;
+			if(arr[i] == 1) countOne++;
+		}
+		for(int i=0; i<countZero; i++){
+			arr[i]=0;
+		}
+		for(int i=countZero; i<countZero+countOne; i++){
+			arr[i]=1;
+		}
+		for(int i=countZero+countOne; i<n; i++){
+			arr[i]=2;
+		}
+	}
 
 
 
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
-		int[] arr1 = {2,6,5,7,11};
-		boolean ans = obj.twoSumBruteForce(arr1, 14);
-		System.out.println(ans);
+		int[] arr1 = {1,2,2,2,0,0,1,1,1};
+		obj.sort012Better(arr1);
+		for(int i=0; i<arr1.length; i++){
+			System.out.print(arr1[i]+" ");	
+		}
+		
 	}
 }
