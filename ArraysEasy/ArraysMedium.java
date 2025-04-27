@@ -63,13 +63,32 @@ class ArraysMedium{
 			arr[i]=2;
 		}
 	}
-
+	void swap(int[] arr, int x, int y){
+		int temp = arr[x];
+		arr[x]=arr[y];
+		arr[y]=temp;
+	}
+	void sort012Optimal(int[] arr){
+		int low=0, high=arr.length-1, mid=0;
+		while(mid<=high){
+			if(arr[mid]==0){
+				swap(arr, mid, low);
+				low++;
+				mid++;
+			} else if(arr[mid]==1){
+				mid++;
+			} else{
+				swap(arr, mid, high);
+				high--;
+			}
+		}
+	}
 
 
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
 		int[] arr1 = {1,2,2,2,0,0,1,1,1};
-		obj.sort012Better(arr1);
+		obj.sort012Optimal(arr1);
 		for(int i=0; i<arr1.length; i++){
 			System.out.print(arr1[i]+" ");	
 		}
