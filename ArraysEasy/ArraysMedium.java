@@ -99,10 +99,25 @@ class ArraysMedium{
 		return -1;
 	}
 
+	int majorityElementBetterSolution(int[] arr){
+		int n = arr.length;
+		HashMap<Integer, Integer> mpp = new HashMap<>();
+		for(int i=0; i<n; i++){
+			int value = mpp.getOrDefault(arr[i], 0);
+			mpp.put(arr[i], value+1);
+		}
+		for(Map.Entry<Integer,Integer> it : mpp.entrySet()){
+			if(it.getValue() > n/2){
+				return it.getKey();
+			}
+		}
+		return -1;
+	}
+
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
-		int[] arr1 = {1,2,2,3,3,4,1,1,1};
-		System.out.println(obj.majorityElementBruteForce(arr1));
+		int[] arr1 = {1,2,2,3,3,1,1,1,1};
+		System.out.println(obj.majorityElementBetterSolution(arr1));
 		// for(int i=0; i<arr1.length; i++){
 		// 	System.out.print(arr1[i]+" ");	
 		// }
