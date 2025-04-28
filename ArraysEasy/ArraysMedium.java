@@ -114,10 +114,35 @@ class ArraysMedium{
 		return -1;
 	}
 
+	int majorityElementOptimal(int[] arr){
+		//Moore'a voting algorithm
+		int n = arr.length;
+		int el = 0;
+		int cnt = 0;
+		for(int i=0; i<n; i++){
+			if(cnt == 0){
+				el = arr[i];
+				cnt++;
+			} else if(arr[i] == el){
+				cnt++;
+			} else{
+				cnt--;
+			}
+		}
+		int elCnt=0;
+		for(int i=0; i<n; i++){
+			if(arr[i]==el){
+				elCnt++;
+			}
+			if(elCnt>n/2) return arr[i];
+		}
+		return -1;
+	}
+
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
-		int[] arr1 = {1,2,2,3,3,1,1,1,1};
-		System.out.println(obj.majorityElementBetterSolution(arr1));
+		int[] arr1 = {1,2,2,2,2,2,3,3,1,1,1,1};
+		System.out.println(obj.majorityElementOptimal(arr1));
 		// for(int i=0; i<arr1.length; i++){
 		// 	System.out.print(arr1[i]+" ");	
 		// }
