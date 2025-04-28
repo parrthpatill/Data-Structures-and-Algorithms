@@ -84,14 +84,28 @@ class ArraysMedium{
 		}
 	}
 
+// Majority Element
+	int majorityElementBruteForce(int[] arr){
+		int n=arr.length;
+		for(int i =0; i<n; i++){
+			int cnt =0;
+			for(int j=0; j<n; j++){
+				if(arr[j]==arr[i]){
+					cnt++;
+				}
+			}
+			if(cnt>n/2) return arr[i];
+		}
+		return -1;
+	}
 
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
-		int[] arr1 = {1,2,2,2,0,0,1,1,1};
-		obj.sort012Optimal(arr1);
-		for(int i=0; i<arr1.length; i++){
-			System.out.print(arr1[i]+" ");	
-		}
+		int[] arr1 = {1,2,2,3,3,4,1,1,1};
+		System.out.println(obj.majorityElementBruteForce(arr1));
+		// for(int i=0; i<arr1.length; i++){
+		// 	System.out.print(arr1[i]+" ");	
+		// }
 		
 	}
 }
