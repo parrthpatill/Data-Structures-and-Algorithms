@@ -194,11 +194,23 @@ class ArraysMedium{
 		return maxSumArray;
 	}
 
+// Buy and sell stocks
+	int buyAndSellStocks(int[] arr){
+		int minimum = arr[0];
+		int profit = 0;
+		int maxProfit = 0;
+		for(int i=1; i<arr.length; i++){
+			profit = arr[i]-minimum;
+			maxProfit = Integer.max(maxProfit, profit);
+			minimum = Integer.min(minimum, arr[i]);
+		}
+		return maxProfit;
+	}
 
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
-		int[] arr1 = {-2,-3,4,-1,-2,1,5,-3};
-		System.out.println(obj.printingMaximumSubarraySum(arr1));
+		int[] arr1 = {7,1,5,3,6,4};
+		System.out.println(obj.buyAndSellStocks(arr1));
 		// for(int i=0; i<arr1.length; i++){
 		// 	System.out.print(arr1[i]+" ");	
 		// }
