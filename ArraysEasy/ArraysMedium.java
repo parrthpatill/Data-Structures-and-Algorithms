@@ -139,10 +139,66 @@ class ArraysMedium{
 		return -1;
 	}
 
+// Maximum subarray sum (Kadane's Algorithm)
+	int maximumSubarraySumBetter(int arr[]){
+		int n=arr.length;
+		int maximum=Integer.MIN_VALUE;
+		for(int i=0; i<n; i++){
+			int sum=0;
+			for(int j=i; j<n; j++){
+				sum+=arr[j];
+				maximum = Integer.max(maximum,sum);
+			}
+		}
+		return maximum;
+	}
+	//Kadane's Algorithm
+	int maximumSubarraySumOptimal(int[] arr){
+		int maximum=Integer.MIN_VALUE;
+		int sum=0;
+		for(int i=0; i<arr.length; i++){
+			sum+=arr[i];
+			if(sum>maximum){
+				maximum=sum;
+			}
+			if(sum<0){
+				sum=0;
+			}
+		}
+		return maximum;
+	}
+	//Printing the subarrays
+	ArrayList<Integer> printingMaximumSubarraySum(int[] arr){
+		ArrayList<Integer> maxSumArray = new ArrayList<Integer>();
+		int maximum=Integer.MIN_VALUE;
+		int sum=0;
+		int start=0;
+		int ansStart =0, ansEnd=0;
+		for(int i=0; i<arr.length; i++){
+			if(sum==0){
+				start = i;
+			}
+			sum+=arr[i];
+			if(sum>maximum){
+				maximum=sum;
+				ansStart=start;
+				ansEnd=i;
+			}
+			if(sum<0){
+				sum=0;
+			}
+		}
+		for(int i=ansStart; i<=ansEnd; i++){
+			maxSumArray.add(arr[i]);
+		}
+		return maxSumArray;
+	}
+
+
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
-		int[] arr1 = {1,2,2,2,2,2,3,3,1,1,1,1};
-		System.out.println(obj.majorityElementOptimal(arr1));
+		int[] arr1 = {-2,-3,4,-1,-2,1,5,-3};
+		System.out.println(obj.printingMaximumSubarraySum(arr1));
 		// for(int i=0; i<arr1.length; i++){
 		// 	System.out.print(arr1[i]+" ");	
 		// }
