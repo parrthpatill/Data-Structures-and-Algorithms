@@ -207,13 +207,32 @@ class ArraysMedium{
 		return maxProfit;
 	}
 
+//Rearrange the array in alternating positive and negative items
+	void posAndNeg(int[] arr){
+		int n=arr.length;
+		ArrayList<Integer> pos = new ArrayList<>(n/2);
+		ArrayList<Integer> neg = new ArrayList<>(n/2);
+		for(int i=0; i<n; i++){
+			if(arr[i] < 0){
+				neg.add(arr[i]);
+			} else{
+				pos.add(arr[i]);
+			}
+		}
+		for(int i=0; i<n/2; i++){
+			arr[i*2] = pos.get(i);
+			arr[i*2+1] = neg.get(i);
+		}
+
+	}
+
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
-		int[] arr1 = {7,1,5,3,6,4};
-		System.out.println(obj.buyAndSellStocks(arr1));
-		// for(int i=0; i<arr1.length; i++){
-		// 	System.out.print(arr1[i]+" ");	
-		// }
+		int[] arr1 = {1,2,3,-1,-4,-6};
+		obj.posAndNeg(arr1);
+		for(int i=0; i<arr1.length; i++){
+			System.out.print(arr1[i]+" ");	
+		}
 		
 	}
 }
