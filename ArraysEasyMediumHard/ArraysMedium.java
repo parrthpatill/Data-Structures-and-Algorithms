@@ -279,10 +279,45 @@ class ArraysMedium{
 		return arr;
 	}
 
+// Next Permutation in place
+	void reverse(int[] arr, int start, int end){
+		while(end>=start){
+			int temp=arr[start];
+			arr[start]=arr[end];
+			arr[end]=temp;
+			start++;
+			end--;
+		}
+	}
+	int[] nextPermutation(int[] arr){
+		int n = arr.length;
+		int reqInd = -1;
+		for(int i=n-2; i>=0; i--){
+			if(arr[i+1]>arr[i]){
+				reqInd = i;
+				break;
+			}
+		}
+		if(reqInd == -1){
+			reverse(arr, 0, n-1);
+			return arr;
+		}
+		for(int i = n-1; i>=reqInd; i--){
+			if(arr[i]>arr[reqInd]){
+				int temp = arr[i];
+				arr[i]=arr[reqInd];
+				arr[reqInd]=temp;
+				break;
+			}
+		}
+		reverse(arr, reqInd+1, n-1);
+		return arr;
+	}
+
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
-		int[] arr1 = {1,2,3,-1,-4,-6,2,3,4,5,2,5,-9,-4};
-		int[] ans = obj.posAndNegUnequal(arr1);
+		int[] arr1 = {2,1,5,4,3,0,0};
+		int[] ans = obj.nextPermutation(arr1);
 		for(int i=0; i<ans.length; i++){
 			System.out.print(ans[i]+" ");	
 		}
