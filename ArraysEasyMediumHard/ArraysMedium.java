@@ -241,11 +241,48 @@ class ArraysMedium{
 		}
 		return ans;
 	}
+	// variety2: when number of pos and negs aren't equal
+
+	int[] posAndNegUnequal(int[] arr){
+		int n = arr.length;
+		ArrayList<Integer> pos = new ArrayList<>();
+		ArrayList<Integer> neg = new ArrayList<>();
+		for(int i=0; i<n; i++){
+			if(arr[i]<0){
+				neg.add(arr[i]);
+			} else{
+				pos.add(arr[i]);
+			}
+		}
+		int posSize=pos.size(), negSize=neg.size();
+		if(posSize>negSize){
+			for(int i=0; i<negSize; i++){
+				arr[i*2]=pos.get(i);
+				arr[i*2+1]=neg.get(i);
+			}
+			int index=negSize*2;
+			for(int i=negSize; i<posSize; i++){
+				arr[index] = pos.get(i);
+				index++;
+			}
+		} else{
+			for(int i=0; i<posSize; i++){
+				arr[i*2]=pos.get(i);
+				arr[i*2+1]=neg.get(i);
+			}
+			int index=posSize*2;
+			for(int i=posSize; i<negSize; i++){
+				arr[index] = neg.get(i);
+				index++;
+			}
+		}
+		return arr;
+	}
 
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
-		int[] arr1 = {1,2,3,-1,-4,-6};
-		int[] ans = obj.posAndNegOptimal(arr1);
+		int[] arr1 = {1,2,3,-1,-4,-6,2,3,4,5,2,5,-9,-4};
+		int[] ans = obj.posAndNegUnequal(arr1);
 		for(int i=0; i<ans.length; i++){
 			System.out.print(ans[i]+" ");	
 		}
