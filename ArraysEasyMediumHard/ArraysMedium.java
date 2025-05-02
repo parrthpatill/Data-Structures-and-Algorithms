@@ -314,13 +314,33 @@ class ArraysMedium{
 		return arr;
 	}
 
+// Leaders In An Array
+	ArrayList<Integer> leadersInAnArrayBrute(int[] arr){
+		int n = arr.length;
+		ArrayList<Integer> ans = new ArrayList<>();
+		for(int i=0; i<n; i++){
+			boolean leader = true;
+			for(int j=i+1; j<n; j++){
+				if(arr[j]>arr[i]){
+					leader = false;
+					break;
+				}
+			}
+			if(leader==true){
+				ans.add(arr[i]);
+			}
+		}
+		return ans;
+	}
+
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
-		int[] arr1 = {2,1,5,4,3,0,0};
-		int[] ans = obj.nextPermutation(arr1);
-		for(int i=0; i<ans.length; i++){
-			System.out.print(ans[i]+" ");	
-		}
+		int[] arr1 = {10, 22, 12, 3, 0, 6};
+		System.out.print(obj.leadersInAnArrayBrute(arr1));
+		//int[] ans = obj.leadersInAnArrayBrute(arr1);
+		// for(int i=0; i<ans.length; i++){
+		// 	System.out.print(ans[i]+" ");	
+		// }
 		
 	}
 }
