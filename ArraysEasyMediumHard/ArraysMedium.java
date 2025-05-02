@@ -333,10 +333,31 @@ class ArraysMedium{
 		return ans;
 	}
 
+	ArrayList<Integer> leadersInAnArrayOptimal(int[] arr){
+		int n = arr.length;
+		int max = Integer.MIN_VALUE;
+		ArrayList<Integer> ans = new ArrayList<>();
+		for(int i=n-1; i>=0; i--){
+			if(arr[i]>=max){
+				ans.add(arr[i]);
+				max = arr[i];
+			}
+		}
+		int left = 0, right = ans.size()-1;
+		while(left<=right){
+			int temp = ans.get(left);
+			ans.set(left, ans.get(right));
+			ans.set(right, temp);
+			left++;
+			right--;
+		}
+		return ans;
+	}
+
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
 		int[] arr1 = {10, 22, 12, 3, 0, 6};
-		System.out.print(obj.leadersInAnArrayBrute(arr1));
+		System.out.print(obj.leadersInAnArrayOptimal(arr1));
 		//int[] ans = obj.leadersInAnArrayBrute(arr1);
 		// for(int i=0; i<ans.length; i++){
 		// 	System.out.print(ans[i]+" ");	
