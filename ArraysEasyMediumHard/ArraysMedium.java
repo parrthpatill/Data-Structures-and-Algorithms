@@ -399,10 +399,32 @@ class ArraysMedium{
 		return longest;
 	}
 
+	int longestConsequtiveSubsequenceOptimal(int[] arr){
+		int n=arr.length;
+		int longest=0;
+		if(n==0) return longest;
+		Set<Integer> set = new HashSet<>();
+		for(int i=0; i<n; i++){
+			set.add(arr[i]);
+		}
+		for(int it : set){
+			int cnt=1;
+			int x=it;
+			if(!set.contains(it - 1)){
+				while(set.contains(x+1)){
+					cnt++;
+					x++;
+				}
+			}
+			longest = Integer.max(longest, cnt);
+		}
+		return longest;
+	}
+
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
 		int[] arr1 = {102,4,100,1,101,3,2,1,1};
-		System.out.print(obj.longestConsequtiveSubsequenceBetter(arr1));
+		System.out.print(obj.longestConsequtiveSubsequenceOptimal(arr1));
 		//int[] ans = obj.leadersInAnArrayBrute(arr1);
 		// for(int i=0; i<ans.length; i++){
 		// 	System.out.print(ans[i]+" ");	
