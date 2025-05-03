@@ -379,10 +379,30 @@ class ArraysMedium{
 		return longest;
 	}
 
+	int longestConsequtiveSubsequenceBetter(int[] arr){
+		int n = arr.length;
+		int currentCount=0;
+		int longest = 1;
+		int lastSmallest = Integer.MIN_VALUE;
+		Arrays.sort(arr);
+		for(int i=0; i<n; i++){
+			if(arr[i]-1 == lastSmallest){
+				lastSmallest=arr[i];
+				currentCount += 1;
+
+			} else if(arr[i] != lastSmallest){
+				lastSmallest=arr[i];
+				currentCount = 1;
+			}
+			longest = Integer.max(longest, currentCount);
+		}
+		return longest;
+	}
+
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
 		int[] arr1 = {102,4,100,1,101,3,2,1,1};
-		System.out.print(obj.longestConsequtiveSubsequenceBrute(arr1));
+		System.out.print(obj.longestConsequtiveSubsequenceBetter(arr1));
 		//int[] ans = obj.leadersInAnArrayBrute(arr1);
 		// for(int i=0; i<ans.length; i++){
 		// 	System.out.print(ans[i]+" ");	
