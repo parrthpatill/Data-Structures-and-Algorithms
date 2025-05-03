@@ -354,10 +354,35 @@ class ArraysMedium{
 		return ans;
 	}
 
+// LONGEST CONSEQUTIVE SUBSEQUENCE
+
+	boolean linearSearch(int[] arr, int searchElement){
+		for(int i=0; i<arr.length; i++){
+			if(arr[i] == searchElement){
+				return true;
+			}
+		}
+		return false;
+	}
+	int longestConsequtiveSubsequenceBrute(int[] arr){
+		int n=arr.length;
+		int longest = 0;
+		for(int i=0; i<n; i++){
+			int count = 1;
+			int x = arr[i]+1;
+			while(linearSearch(arr, x)){
+				count += 1;
+				x += 1;
+			}
+			longest=Integer.max(count, longest);
+		}
+		return longest;
+	}
+
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
-		int[] arr1 = {10, 22, 12, 3, 0, 6};
-		System.out.print(obj.leadersInAnArrayOptimal(arr1));
+		int[] arr1 = {102,4,100,1,101,3,2,1,1};
+		System.out.print(obj.longestConsequtiveSubsequenceBrute(arr1));
 		//int[] ans = obj.leadersInAnArrayBrute(arr1);
 		// for(int i=0; i<ans.length; i++){
 		// 	System.out.print(ans[i]+" ");	
