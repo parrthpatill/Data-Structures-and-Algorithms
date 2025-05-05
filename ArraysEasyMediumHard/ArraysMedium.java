@@ -421,10 +421,75 @@ class ArraysMedium{
 		return longest;
 	}
 
+// SET MATRIX ZEROS
+
+	void markRow(int[][] arr, int row, int colSize){
+		for(int j=0; j<colSize; j++){
+			if(arr[row][j]!=0) arr[row][j] = -1;
+		}
+	}
+	void markCol(int[][] arr, int col, int rowSize){
+		for(int i=0; i<rowSize; i++){
+			if(arr[i][col]!=0) arr[i][col] = -1;
+		}
+	}
+	void setMatrixZerosBrute(int[][] arr){
+		int n = arr.length;
+		int m = arr[0].length;
+		for(int i=0; i<n; i++){
+			for(int j=0; j<m; j++){
+				if(arr[i][j]==0){
+					markRow(arr,i,m);
+					markCol(arr,j,n);
+				}
+			}
+		}
+		for(int i=0; i<n; i++){
+			for(int j=0; j<m; j++){
+				if(arr[i][j]==-1){
+					arr[i][j] = 0;
+				}
+			}
+		}
+	}
+
+	void setMatrixZerosBetter(int[][] arr){
+		int n=arr.length;
+		int m=arr[0].length;
+		int[] row = new int[n];
+		int[] col = new int[m];
+		for(int i=0; i<n; i++){
+			for(int j=0; j<m; j++){
+				if(arr[i][j]==0){
+					row[i]=1;
+					col[j]=1;
+				}
+			}
+		}
+		for(int i=0; i<n; i++){
+			for(int j=0; j<m; j++){
+				if(row[i]==1 || col[j]==1){
+					arr[i][j]=0;
+				}
+			}
+		}
+	}
+
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
 		int[] arr1 = {102,4,100,1,101,3,2,1,1};
-		System.out.print(obj.longestConsequtiveSubsequenceOptimal(arr1));
+		int[][] arr2 = { {1,1,1,1},
+						 {1,0,0,1},
+						 {1,1,0,1},
+						 {1,1,1,1} };
+		obj.setMatrixZerosBetter(arr2);
+		for(int i=0; i<4; i++){
+			for(int j=0; j<4; j++){
+				System.out.print(arr2[i][j]);
+			}
+			System.out.println();
+		}
+		//System.out.print(obj.longestConsequtiveSubsequenceOptimal(arr1));
 		//int[] ans = obj.leadersInAnArrayBrute(arr1);
 		// for(int i=0; i<ans.length; i++){
 		// 	System.out.print(ans[i]+" ");	
