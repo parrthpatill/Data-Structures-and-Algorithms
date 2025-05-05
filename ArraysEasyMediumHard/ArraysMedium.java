@@ -452,7 +452,6 @@ class ArraysMedium{
 			}
 		}
 	}
-
 	void setMatrixZerosBetter(int[][] arr){
 		int n=arr.length;
 		int m=arr[0].length;
@@ -482,7 +481,7 @@ class ArraysMedium{
 						 {1,0,0,1},
 						 {1,1,0,1},
 						 {1,1,1,1} };
-		obj.setMatrixZerosBetter(arr2);
+		obj.setMatrixZerosBrute(arr2);
 		for(int i=0; i<4; i++){
 			for(int j=0; j<4; j++){
 				System.out.print(arr2[i][j]);
