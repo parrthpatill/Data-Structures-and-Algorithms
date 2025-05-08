@@ -543,24 +543,56 @@ class ArraysMedium{
 		}
 	}
 
+// SPIRAL TRAVERSAL IN MATRIX
+
+	ArrayList<Integer> spiralTraversalInArrat(int[][] arr){
+		int n = arr.length;
+		int m = arr[0].length;
+		ArrayList<Integer> ans = new ArrayList<>();
+		int top=0, bottom=n-1, left=0, right=n-1;
+		while(top<=bottom && left<=right){
+
+			for(int i = left; i<=right; i++){
+				ans.add(arr[top][i]);
+			} top++;
+
+			for(int i = top; i<=bottom; i++){
+				ans.add(arr[i][right]);
+			} right--;
+
+			if(top<=bottom){
+				for(int i = right; i>=left; i--){
+					ans.add(arr[bottom][i]);
+				} bottom--;
+			}
+			if(left<=right){
+				for(int i = bottom; i>=top; i--){
+					ans.add(arr[i][left]);
+				} left++;
+			}
+		}
+		return ans;
+	}
+
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
 		int[] arr1 = {102,4,100,1,101,3,2,1,1};
 		int[][] arr2 = { {1,2,3,4},
-						 {5,6,7,8},
-						 {9,10,11,12},
-						 {13,14,15,16} };
-		obj.rotateImageOptimal(arr2);
+						 {12,13,14,5},
+						 {11,16,15,6},
+						 {10,9,8,7} };
+		// obj.spiralTraversalInArrat(arr2);
 		// int[][] ans = obj.rotateImageBrute(arr2);
-		for(int i=0; i<4; i++){
-			for(int j=0; j<4; j++){
-				System.out.print(arr2[i][j]);
-				System.out.print(",");
+		// for(int i=0; i<4; i++){
+		// 	for(int j=0; j<4; j++){
+		// 		System.out.print(arr2[i][j]);
+		// 		System.out.print(",");
 
-			}
-			System.out.println();
-		}
-		//System.out.print(obj.longestConsequtiveSubsequenceOptimal(arr1));
+		// 	}
+		// 	System.out.println();
+		// }
+		System.out.print(obj.spiralTraversalInArrat(arr2));
+
 		//int[] ans = obj.leadersInAnArrayBrute(arr1);
 		// for(int i=0; i<ans.length; i++){
 		// 	System.out.print(ans[i]+" ");	
