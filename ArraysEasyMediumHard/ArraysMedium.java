@@ -574,7 +574,22 @@ class ArraysMedium{
 		return ans;
 	}
 
-// COUNT NUMBER OF SUBARRAYS WITH SUM K
+
+//COUNT NUMBER OF SUBARRAYS WITH SUM K
+
+	int countSubarrayWithSumKBrute(int[] arr, int k){
+		int n=arr.length;
+		int count = 0;
+		for(int i=0; i<n; i++){
+			int sum = 0;
+			for(int j=i; j<n; j++){
+				sum += arr[j];
+				if(sum==k) count+=1;
+			}
+		}
+		return count;
+	}
+
 	int countSubarrayWithSumK(int[] arr, int k){
 		int n = arr.length;
 		int count = 0;
@@ -596,6 +611,7 @@ class ArraysMedium{
 		}
 		return count;
 	}
+
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
 		int[] arr1 = {1,2,3,-3,1,1,1,4,2,-3};
@@ -613,7 +629,7 @@ class ArraysMedium{
 		// 	}
 		// 	System.out.println();
 		// }
-		System.out.print(obj.countSubarrayWithSumK(arr1, 3));
+		System.out.print(obj.countSubarrayWithSumKBrute(arr1, 3));
 
 		//int[] ans = obj.leadersInAnArrayBrute(arr1);
 		// for(int i=0; i<ans.length; i++){
