@@ -574,9 +574,31 @@ class ArraysMedium{
 		return ans;
 	}
 
+// COUNT NUMBER OF SUBARRAYS WITH SUM K
+	int countSubarrayWithSumK(int[] arr, int k){
+		int n = arr.length;
+		int count = 0;
+		int preSum = 0;
+		Map<Integer, Integer> map = new HashMap<>();
+		map.put(preSum,1);
+		for(int i = 0; i<n; i++){
+			//incrementing the preSum
+			preSum+=arr[i];
+			int req = preSum-k;
+
+			//increasing count for how many times req was found
+			if(map.containsKey(req)){
+				count += map.get(req);
+			}
+
+			// updating the map
+			map.put(preSum, map.getOrDefault(preSum,0)+1);
+		}
+		return count;
+	}
 	public static void main(String[] args){
 		ArraysMedium obj = new ArraysMedium();
-		int[] arr1 = {102,4,100,1,101,3,2,1,1};
+		int[] arr1 = {1,2,3,-3,1,1,1,4,2,-3};
 		int[][] arr2 = { {1,2,3,4},
 						 {12,13,14,5},
 						 {11,16,15,6},
@@ -591,7 +613,7 @@ class ArraysMedium{
 		// 	}
 		// 	System.out.println();
 		// }
-		System.out.print(obj.spiralTraversalInArrat(arr2));
+		System.out.print(obj.countSubarrayWithSumK(arr1, 3));
 
 		//int[] ans = obj.leadersInAnArrayBrute(arr1);
 		// for(int i=0; i<ans.length; i++){
