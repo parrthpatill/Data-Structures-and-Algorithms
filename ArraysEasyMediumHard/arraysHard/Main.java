@@ -5,8 +5,7 @@ class Main{
 		System.out.println(obj.nthRowInPascalsTriangle(6));
 		int element = obj.findElementInPascalsTriangle(6,1);
 		System.out.println(element);
-
-
+		System.out.println(obj.completePascalsTriangle(6));
 	}
 }
 

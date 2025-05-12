@@ -28,4 +28,13 @@ public class PascalsTriangle{
 		}
 		return ans;
 	}
+
+	// PRINT PASCAL'S TRIANGLE FOR N ROWS
+	ArrayList<ArrayList<Integer>> completePascalsTriangle(int row){
+		ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
+		for(int i = 1; i<=row; i++){
+			ans.add(nthRowInPascalsTriangle(i));
+		}
+		return ans;
+	}
 }
