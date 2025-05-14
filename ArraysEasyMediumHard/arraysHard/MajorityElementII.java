@@ -22,4 +22,23 @@ public class MajorityElementII{
 		}
 		return ans;
 	}
+
+	// Better approach(using HashMap)
+	List<Integer> getMajorityElementIIBetter(int[] arr){
+		int n = arr.length;
+		List<Integer> ans = new ArrayList<>();
+		Map<Integer, Integer> mpp = new HashMap<>();
+		for(int i=0; i<n; i++){
+			int value = mpp.getOrDefault(arr[i], 0);
+			mpp.put(arr[i], value+1);
+
+			if(mpp.get(arr[i]) == n/3 +1){
+				ans.add(arr[i]);
+			}
+
+			if(ans.size() == 2) break;
+		}
+		return ans;
+	}
+
 }

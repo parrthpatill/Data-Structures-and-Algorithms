@@ -10,8 +10,8 @@ class Main{
 
 		// Majority Element II
 		MajorityElementII obj1 = new MajorityElementII();
-		int[] arr = {1,1,1,3,3,2,2,2,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5};
-		System.out.println(obj1.getMajorityElementIIBruteForce(arr));
+		int[] arr = {1,1,1,3,3,2,2,2,4,4,4,4,4,4,4,4,4,4,4,45,5,5,5,5,5,5,5,5,5,5,5};
+		System.out.println(obj1.getMajorityElementIIBetter(arr));
 
 	}
 }
