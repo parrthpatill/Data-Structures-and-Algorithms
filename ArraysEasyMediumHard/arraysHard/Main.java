@@ -15,8 +15,12 @@ class Main{
 
 		// 3Sum problem
 		ThreeSum obj3 = new ThreeSum();
-		int[] arr = {-1,0,1,2,-1,-4};
-		System.out.println(obj3.threeSumOptimal(arr));
+		// int[] arr = {-1,0,1,2,-1,-4};
+		// System.out.println(obj3.threeSumOptimal(arr));
+
+		FourSum obj4 = new FourSum();
+		int[] arr = {4, 3, 3, 4, 4, 2, 1, 2, 1, 1};
+		System.out.println(obj4.getFourSumBrute(arr, 9));
 
 	}
 }
