@@ -16,7 +16,7 @@ class Main{
 		// 3Sum problem
 		ThreeSum obj3 = new ThreeSum();
 		int[] arr = {-1,0,1,2,-1,-4};
-		System.out.println(obj3.threeSumBetter(arr));
+		System.out.println(obj3.threeSumOptimal(arr));
 
 	}
 }
