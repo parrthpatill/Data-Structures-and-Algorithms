@@ -20,7 +20,7 @@ class Main{
 
 		FourSum obj4 = new FourSum();
 		int[] arr = {4, 3, 3, 4, 4, 2, 1, 2, 1, 1};
-		System.out.println(obj4.getFourSumBetter(arr, 9));
+		System.out.println(obj4.getFourSumOptimal(arr, 9));
 
 	}
 }
