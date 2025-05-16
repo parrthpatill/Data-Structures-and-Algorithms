@@ -29,9 +29,9 @@ public class NumberOfSubarraysWithXorK{
 			int x = xr^k;
 			if(frontXorMap.containsKey(x)){
 				cnt += frontXorMap.get(x);
-			} else {
-				frontXorMap.put(xr, frontXorMap.getOrDefault(xr,0)+1);
 			}
+			frontXorMap.put(xr, frontXorMap.getOrDefault(xr,0)+1);
+			
 		}
 		return cnt;
 	}
