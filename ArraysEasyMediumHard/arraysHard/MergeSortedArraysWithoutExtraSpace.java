@@ -37,4 +37,32 @@ public class MergeSortedArraysWithoutExtraSpace{
 
 		return ans;
 	}
+
+	// Optimal Solution 1
+	List<int[]> mergeSortedArraysOptimal1(int[] arr1, int[] arr2){
+		int n = arr1.length;
+		int m = arr2.length;
+		int l = n-1;
+		int r = 0;
+
+		while(l >= 0 && r < m){
+			if(arr1[l] > arr2[r]){
+				int temp = arr1[l];
+				arr1[l] = arr2[r];
+				arr2[r] = temp;
+				l--;
+				r++;
+			} else {
+				break;
+			}
+		}
+		Arrays.sort(arr1);
+		Arrays.sort(arr2);
+
+		List<int[]> ans = new ArrayList<>();
+		ans.add(arr1);
+		ans.add(arr2);
+
+		return ans;
+	}
 }
