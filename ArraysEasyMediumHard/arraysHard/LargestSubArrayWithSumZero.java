@@ -24,16 +24,20 @@ public class LargestSubArrayWithSumZero{
 		int n = arr.length;
 		// for storing the presums and indices
 		Map<Integer, Integer> preSumMap = new HashMap<>();
-		int max = -1;
+		int max = 0;
 		int preSum = 0;
 		for(int i = 0; i<n; i++){
 			// incrementing the presum
 			preSum+=arr[i];
 
-			if(!preSumMap.containsKey(preSum)){
-				preSumMap.put(preSum, i);
-			} else{
-				max = Integer.max(max, i - preSumMap.get(preSum));
+			if(preSum == 0){
+				max = i+1;
+			}else {
+				if(!preSumMap.containsKey(preSum)){
+					preSumMap.put(preSum, i);
+				} else{
+					max = Integer.max(max, i - preSumMap.get(preSum));
+				}
 			}
 		}
 		return max;
