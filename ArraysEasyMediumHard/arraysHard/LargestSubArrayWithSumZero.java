@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class LargestSubArrayWithSumZero{
 	//brute force solution
 	int largestSubArrayWithSumZeroBrute(int[] arr){
@@ -14,5 +16,27 @@ public class LargestSubArrayWithSumZero{
 			}
 		}
 		return max;
+	}
+
+	//Optimal solution using prefixSum and hashing
+
+	int largestSubArrayWithSumZeroOptimal(int[] arr){
+		int n = arr.length;
+		// for storing the presums and indices
+		Map<Integer, Integer> preSumMap = new HashMap<>();
+		int max = -1;
+		int preSum = 0;
+		for(int i = 0; i<n; i++){
+			// incrementing the presum
+			preSum+=arr[i];
+
+			if(!preSumMap.containsKey(preSum)){
+				preSumMap.put(preSum, i);
+			} else{
+				max = Integer.max(max, i - preSumMap.get(preSum));
+			}
+		}
+		return max;
+
 	}
 }

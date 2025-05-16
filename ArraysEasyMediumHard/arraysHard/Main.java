@@ -24,7 +24,7 @@ class Main{
 
 		LargestSubArrayWithSumZero obj5 = new LargestSubArrayWithSumZero();
 		int[] arr = {1,-1,3,2,-2,-8,1,7,10,23};
-		System.out.println(obj5.largestSubArrayWithSumZeroBrute(arr));
+		System.out.println(obj5.largestSubArrayWithSumZeroOptimal(arr));
 
 	}
 }
