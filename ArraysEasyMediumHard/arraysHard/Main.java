@@ -27,8 +27,12 @@ class Main{
 		// System.out.println(obj5.largestSubArrayWithSumZeroOptimal(arr));
 
 		NumberOfSubarraysWithXorK obj6 = new NumberOfSubarraysWithXorK();
-		int[] arr = {4,2,2,6,4};
-		System.out.println(obj6.numberOfSubarraysWithXorKOptimal(arr, 6));
+		// int[] arr = {4,2,2,6,4};
+		// System.out.println(obj6.numberOfSubarraysWithXorKOptimal(arr, 6));
+
+		MergeOverlappingArrays obj7 = new MergeOverlappingArrays();
+		int[][] arr = {{1,3},{2,6},{8,9},{9,11},{8,10},{2,4},{15,18},{16,17}};
+		System.out.println(obj7.mergeOverlappingArrays(arr));
 
 	}
 }
