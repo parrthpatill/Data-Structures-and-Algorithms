@@ -23,8 +23,12 @@ class Main{
 		// System.out.println(obj4.getFourSumOptimal(arr, 9));
 
 		LargestSubArrayWithSumZero obj5 = new LargestSubArrayWithSumZero();
-		int[] arr = {1,-1,3,2,-2,-8,1,7,10,23};
-		System.out.println(obj5.largestSubArrayWithSumZeroOptimal(arr));
+		// int[] arr = {1,-1,3,2,-2,-8,1,7,10,23};
+		// System.out.println(obj5.largestSubArrayWithSumZeroOptimal(arr));
+
+		NumberOfSubarraysWithXorK obj6 = new NumberOfSubarraysWithXorK();
+		int[] arr = {4,2,2,6,4};
+		System.out.println(obj6.numberOfSubarraysWithXorKOptimal(arr, 6));
 
 	}
 }
