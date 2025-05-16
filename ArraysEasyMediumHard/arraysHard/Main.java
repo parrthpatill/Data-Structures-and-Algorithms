@@ -1,3 +1,4 @@
+import java.util.*;
 class Main{
 
 	public static void main(String[] args){
@@ -31,8 +32,16 @@ class Main{
 		// System.out.println(obj6.numberOfSubarraysWithXorKOptimal(arr, 6));
 
 		MergeOverlappingArrays obj7 = new MergeOverlappingArrays();
-		int[][] arr = {{1,3},{2,6},{8,9},{9,11},{8,10},{2,4},{15,18},{16,17}};
-		System.out.println(obj7.mergeOverlappingArraysOptimal(arr));
+		// int[][] arr = {{1,3},{2,6},{8,9},{9,11},{8,10},{2,4},{15,18},{16,17}};
+		// System.out.println(obj7.mergeOverlappingArraysOptimal(arr));
+
+		MergeSortedArraysWithoutExtraSpace obj8 = new MergeSortedArraysWithoutExtraSpace();
+		int[] arr1 = {1,3,5,7};
+		int[] arr2 = {0,2,6,8,9};
+		List<int[]> result = obj8.mergeSortedArraysBrute(arr1, arr2);
+		System.out.println(Arrays.toString(result.get(0)));
+		System.out.println(Arrays.toString(result.get(1)));
+
 
 	}
 }
