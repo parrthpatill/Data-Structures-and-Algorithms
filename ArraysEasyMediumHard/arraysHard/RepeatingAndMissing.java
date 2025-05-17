@@ -72,4 +72,51 @@ public class RepeatingAndMissing{
 		ans.add((int)y);
 		return ans;
 	}
+
+	List<Integer> repeatingAndMissingOptimal2(int[] arr){
+		int n = arr.length;
+		int xor = 0;
+		for(int i=0; i<n; i++){
+			xor = xor ^ arr[i];
+			xor = xor ^ (i+1);
+		}
+		int bitNo = 0;
+		while(true){
+			if((xor & 1<<bitNo) != 0){
+				break;
+			}
+			bitNo++;
+		}
+		int zero = 0;
+		int one = 0;
+		for(int i=0; i<n; i++){
+			if((arr[i] & 1<<bitNo) != 0){
+				one = one ^ arr[i];
+			} else {
+				zero = zero ^ arr[i];
+			}
+		}
+		for(int i=0; i<n; i++){
+			if((i+1 & 1<<bitNo) != 0){
+				one = one ^ (i+1);
+			} else {
+				zero = zero ^ (i+1);
+			}
+		}
+		int cnt = 0;
+		for(int i =0; i<n; i++){
+			if(arr[i] == one){
+				cnt++;
+			}
+		}
+		List<Integer> ans = new ArrayList<>();
+		if(cnt == 2){
+			ans.add(one);
+			ans.add(zero);
+		} else {
+			ans.add(zero);
+			ans.add(one);
+		}
+		return ans;
+	}
 }
