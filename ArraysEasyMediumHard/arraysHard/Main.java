@@ -48,7 +48,7 @@ class Main{
 
 		CountInversions obj10 = new CountInversions();
 		int[] arr = {5,3,2,4,1};
-		System.out.println(obj10.countInversionsOptimal(arr));
+		System.out.println(obj10.countInversionBrute(arr));
 
 
 	}

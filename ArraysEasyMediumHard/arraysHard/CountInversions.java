@@ -1,5 +1,17 @@
 public class CountInversions{
 
+	// Brute force Solution
+
+	int countInversionBrute(int[] arr){
+		int n = arr.length;
+		int cnt = 0;
+		for(int i = 0; i<n; i++){
+			for(int j = i+1; j<n; j++){
+				if(arr[j] < arr[i])	cnt++;
+			}
+		}
+		return cnt;
+	}
 
 
 	// Optimal Solution using merge sort
