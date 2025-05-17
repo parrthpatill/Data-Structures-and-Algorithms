@@ -38,7 +38,7 @@ class Main{
 		MergeSortedArraysWithoutExtraSpace obj8 = new MergeSortedArraysWithoutExtraSpace();
 		int[] arr1 = {1,3,5,7};
 		int[] arr2 = {0,2,6,8,9};
-		List<int[]> result = obj8.mergeSortedArraysOptimal1(arr1, arr2);
+		List<int[]> result = obj8.mergeSortedArraysOptimal2(arr1, arr2);
 		System.out.println(Arrays.toString(result.get(0)));
 		System.out.println(Arrays.toString(result.get(1)));
 
