@@ -44,7 +44,7 @@ class Main{
 
 		RepeatingAndMissing obj9 = new RepeatingAndMissing();
 		int[] arr = {2,4,3,6,1,1};
-		System.out.println(obj9.repeatingAndMissing(arr));
+		System.out.println(obj9.repeatingAndMissingBetter(arr));
 
 	}
 }
