@@ -43,8 +43,13 @@ class Main{
 		// System.out.println(Arrays.toString(result.get(1)));
 
 		RepeatingAndMissing obj9 = new RepeatingAndMissing();
-		int[] arr = {2,4,3,6,1,1};
-		System.out.println(obj9.repeatingAndMissingOptimal2(arr));
+		// int[] arr = {2,4,3,6,1,1};
+		// System.out.println(obj9.repeatingAndMissingOptimal2(arr));
+
+		CountInversions obj10 = new CountInversions();
+		int[] arr = {5,3,2,4,1};
+		System.out.println(obj10.countInversionsOptimal(arr));
+
 
 	}
 }
