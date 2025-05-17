@@ -1,7 +1,6 @@
 public class CountInversions{
 
 	// Brute force Solution
-
 	int countInversionBrute(int[] arr){
 		int n = arr.length;
 		int cnt = 0;
