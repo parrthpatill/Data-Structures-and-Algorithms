@@ -47,10 +47,12 @@ class Main{
 		// System.out.println(obj9.repeatingAndMissingOptimal2(arr));
 
 		CountInversions obj10 = new CountInversions();
-		int[] arr = {5,3,2,4,1};
-		System.out.println(obj10.countInversionBrute(arr));
+		// int[] arr = {5,3,2,4,1};
+		// System.out.println(obj10.countInversionBrute(arr));
 
-
+		MaximumProductSubarray obj11 = new MaximumProductSubarray();
+		int[] arr = {2,3,-2,4};
+		System.out.println(obj11.maximumProductSubarrayOptimal(arr));
 	}
 }
 
