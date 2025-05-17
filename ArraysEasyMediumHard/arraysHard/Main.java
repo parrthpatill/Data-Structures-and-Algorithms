@@ -36,12 +36,15 @@ class Main{
 		// System.out.println(obj7.mergeOverlappingArraysOptimal(arr));
 
 		MergeSortedArraysWithoutExtraSpace obj8 = new MergeSortedArraysWithoutExtraSpace();
-		int[] arr1 = {1,3,5,7};
-		int[] arr2 = {0,2,6,8,9};
-		List<int[]> result = obj8.mergeSortedArraysOptimal2(arr1, arr2);
-		System.out.println(Arrays.toString(result.get(0)));
-		System.out.println(Arrays.toString(result.get(1)));
+		// int[] arr1 = {1,3,5,7};
+		// int[] arr2 = {0,2,6,8,9};
+		// List<int[]> result = obj8.mergeSortedArraysOptimal2(arr1, arr2);
+		// System.out.println(Arrays.toString(result.get(0)));
+		// System.out.println(Arrays.toString(result.get(1)));
 
+		RepeatingAndMissing obj9 = new RepeatingAndMissing();
+		int[] arr = {2,4,3,6,1,1};
+		System.out.println(obj9.repeatingAndMissing(arr));
 
 	}
 }
