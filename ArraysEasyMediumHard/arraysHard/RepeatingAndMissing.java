@@ -46,4 +46,30 @@ public class RepeatingAndMissing{
 		}
 		return ans;
 	}
+
+	List<Integer> repeatingAndMissingOptimal1(int[] arr){
+		List<Integer> ans = new ArrayList<>();
+		// s - sn = x-y
+		// s2 - sn2 = (x+y)(x-y)
+		long n = (long)arr.length;
+		long sn = (n*(n+1))/2;
+		long sn2 = (n*(n+1)*(2*n+1))/6;
+		long s = 0;
+		long s2 = 0;
+		for(int i=0; i<n; i++){
+			s += (long)arr[i];
+			s2 += (long)arr[i] * (long)arr[i];
+		}
+		//x-y
+		long eq1 = s - sn;
+		//x+y
+		long eq2 = (s2 - sn2)/eq1;
+
+		long x = (eq1 + eq2)/2;
+		long y = x - eq1;
+
+		ans.add((int)x);
+		ans.add((int)y);
+		return ans;
+	}
 }
