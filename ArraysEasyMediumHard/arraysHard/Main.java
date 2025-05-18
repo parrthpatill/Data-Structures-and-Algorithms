@@ -51,8 +51,12 @@ class Main{
 		// System.out.println(obj10.countInversionBrute(arr));
 
 		MaximumProductSubarray obj11 = new MaximumProductSubarray();
-		int[] arr = {2,3,-2,4};
-		System.out.println(obj11.maximumProductSubarrayOptimal(arr));
+		// int[] arr = {2,3,-2,4};
+		// System.out.println(obj11.maximumProductSubarrayOptimal(arr));
+
+		ReversePairs obj12 = new ReversePairs();
+		int arr[] = {40, 25, 19, 12, 9, 6, 2};
+		System.out.println(obj12.reversePairsOptimal(arr));
 	}
 }
 
