@@ -1,6 +1,7 @@
 public class LowerBoundAndUpperBound {
 
 	// Lower Bound
+	// Search insert position
 	int lowerBound(int[] arr, int x){
 		int n = arr.length;
 		int low = 0;
