@@ -23,8 +23,13 @@ public class Main{
 		// System.out.println(obj5.numberOfOccurrences(arr, 4));
 
 		SearchInSortedAndRotatedArray obj6 = new SearchInSortedAndRotatedArray();
-		int[] arr = {2,2,7,8,9,2,2,2,2,2,2};
-		System.out.println(obj6.searchInSortedAndRotatedArrayII(arr, 11));
+		// int[] arr = {2,2,7,8,9,2,2,2,2,2,2};
+		// System.out.println(obj6.searchInSortedAndRotatedArrayII(arr, 11));
+
+		MinimumInSortedAndRotatedArray obj7 = new MinimumInSortedAndRotatedArray();
+		int[] arr = {4,5,6,7,1,2};
+		System.out.println(obj7.minimumInSortedAndRotatedArray(arr));
+
 
 	}
 }
