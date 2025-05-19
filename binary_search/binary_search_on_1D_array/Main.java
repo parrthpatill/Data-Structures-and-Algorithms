@@ -15,8 +15,13 @@ public class Main{
 		// System.out.println(obj3.floorInArray(arr, 7));
 
 		FirstAnLastOccurrence obj4 = new FirstAnLastOccurrence();
-		int[] arr = {1,2,3,4,4,5,6,8,8,9};
-		System.out.println(obj4.firstAndLastOccurrenceUsingLbAndUb(arr, 34));
+		// int[] arr = {1,2,3,4,4,5,6,8,8,9};
+		// System.out.println(obj4.firstAndLastOccurrenceUsingLbAndUb(arr, 34));
+
+		NumberOfOccurrences obj5 = new NumberOfOccurrences();
+		int[] arr = {1,2,3,4,4,4,4,4,5,6,8,8,9};
+		System.out.println(obj5.numberOfOccurrences(arr, 4));
+
 
 	}
 }
