@@ -2,6 +2,7 @@ public class LowerBoundAndUpperBound {
 
 	// Lower Bound
 	// Search insert position
+	// Ceil in an array
 	int lowerBound(int[] arr, int x){
 		int n = arr.length;
 		int low = 0;
