@@ -27,8 +27,8 @@ public class Main{
 		// System.out.println(obj6.searchInSortedAndRotatedArrayII(arr, 11));
 
 		MinimumInSortedAndRotatedArray obj7 = new MinimumInSortedAndRotatedArray();
-		int[] arr = {4,5,6,7,1,2};
-		System.out.println(obj7.minimumInSortedAndRotatedArray(arr));
+		int[] arr = {4,1,2,3,4,4,4,4,4};
+		System.out.println(obj7.minimumInSortedAndRotatedArrayII(arr));
 
 
 	}
