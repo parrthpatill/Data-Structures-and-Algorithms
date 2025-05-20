@@ -11,6 +11,7 @@ public class MinimumInSortedAndRotatedArray{
 
 			if(arr[low] <= arr[high]){
 				ans = Integer.min(ans, arr[low]);
+				break;
 			}
 			if(arr[low] <= arr[mid]){
 				ans = Integer.min(ans, arr[low]);
@@ -40,6 +41,7 @@ public class MinimumInSortedAndRotatedArray{
 
 			if(arr[low] <= arr[high]){
 				ans = Integer.min(ans, arr[low]);
+				break;
 			}
 			if(arr[low] <= arr[mid]){
 				ans = Integer.min(ans, arr[low]);
