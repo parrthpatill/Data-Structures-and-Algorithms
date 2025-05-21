@@ -35,8 +35,8 @@ public class Main{
 		// System.out.println(obj8.rotationCountII(arr));
 
 		SingleELementInSortedArray obj9 = new SingleELementInSortedArray();
-		int arr[] = {1,1,2,2,3,3,4,4,5,5,6};
-		System.out.println(obj9.singleELementInSortedArrayBrute(arr));
+		int arr[] = {1,1,2,3,3,4,4,5,5,6,6};
+		System.out.println(obj9.singleELementInSortedArrayOptimal(arr));
 
 
 	}
