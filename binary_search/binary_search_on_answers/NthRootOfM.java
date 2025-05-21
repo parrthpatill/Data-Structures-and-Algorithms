@@ -23,8 +23,11 @@ public class NthRootOfM{
 		while(low <= high){
 			int mid = (low+high)/2;
 			int prod = func(mid, n);
+
 			if(prod == m) return mid;
+
 			else if(prod < m) low = mid + 1;
+			
 			else high = mid - 1;
 		}
 		return -1;
