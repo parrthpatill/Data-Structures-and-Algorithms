@@ -35,9 +35,12 @@ public class Main{
 		// System.out.println(obj8.rotationCountII(arr));
 
 		SingleELementInSortedArray obj9 = new SingleELementInSortedArray();
-		int arr[] = {1,1,2,3,3,4,4,5,5,6,6};
-		System.out.println(obj9.singleELementInSortedArrayOptimal(arr));
+		// int arr[] = {1,1,2,3,3,4,4,5,5,6,6};
+		// System.out.println(obj9.singleELementInSortedArrayOptimal(arr));
 
+		FindPeakElement obj10 = new FindPeakElement();
+		int[] arr = {1,2,3,10,5,6,7,8,5,10};
+		System.out.println(obj10.peakElementOptimal(arr));
 
 	}
 }
