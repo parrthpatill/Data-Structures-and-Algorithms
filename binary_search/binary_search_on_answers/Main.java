@@ -7,8 +7,12 @@ public class Main{
 		// System.out.println(obj2.nthRootOfMOptimal(4,16));
 
 		KokoEatingBananas obj3 = new KokoEatingBananas();
-		int[] piles = {3,6,7,11};
-		System.out.println(obj3.kokoEatingBananasOptimal(piles, 8));
+		// int[] piles = {3,6,7,11};
+		// System.out.println(obj3.kokoEatingBananasOptimal(piles, 8));
+
+		MinimumDaysToMakeMBouquets obj4 = new MinimumDaysToMakeMBouquets();
+		int bloomDay[] = {7,7,7,7,13,11,12,7};
+		System.out.println(obj4.minimumDaysToMakeMBouquetsBrute(bloomDay, 2, 3));
 
 	}
 }
