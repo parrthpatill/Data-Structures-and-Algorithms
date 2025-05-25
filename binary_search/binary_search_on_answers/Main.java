@@ -12,7 +12,7 @@ public class Main{
 
 		MinimumDaysToMakeMBouquets obj4 = new MinimumDaysToMakeMBouquets();
 		int bloomDay[] = {7,7,7,7,13,11,12,7};
-		System.out.println(obj4.minimumDaysToMakeMBouquetsBrute(bloomDay, 2, 3));
+		System.out.println(obj4.minimumDaysToMakeMBouquetsOptimal(bloomDay, 2, 3));
 
 	}
 }
