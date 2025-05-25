@@ -43,7 +43,7 @@ public class MinimumDaysToMakeMBouquets{
 	}
 	int minimumDaysToMakeMBouquetsOptimal(int[] arr, int m, int k){
 		int n = arr.length;
-		int low = Integer.MIN_VALUE, high = Integer.MAX_VALUE;
+		int high = Integer.MIN_VALUE, low = Integer.MAX_VALUE;
 		for(int i = 0; i<n; i++){
 			low = Integer.min(arr[i], low);
 			high = Integer.max(arr[i], high);
