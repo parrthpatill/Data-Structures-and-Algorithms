@@ -19,10 +19,35 @@ public class ConvertingArrayToLinkedList{
 		}
 		return head;
 	}
+	private static int lengthOfLL(Node head){
+		int cnt = 0;
+		Node temp = head;
+		while(temp != null){
+			temp = temp.next;
+			cnt++;
+		}
+		return cnt;
+	}
+	private static boolean searchInLL(Node head, int x){
+		Node temp = head;
+		while(temp != null){
+			if(temp.data == x) return true;
+			temp = temp.next;
+		}
+		return false;
+	}
 
 	public static void main(String[] args){
 		int[] arr = {12,34,56,32};
 		Node head = convertArrToLL(arr);
 		System.out.println(head.data);
+		Node temp = head;
+		while(temp != null){
+			// System.out.print(temp.data + " ");
+			temp = temp.next;
+		}
+		System.out.println(lengthOfLL(head));
+		System.out.println(searchInLL(head, 100));
+
 	}
 }
