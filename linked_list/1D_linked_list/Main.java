@@ -13,7 +13,8 @@ public class Main{
 		// System.out.println(ConvertingArrayToLinkedList.searchInLL(head, 100));
 
 		DeleteANode obj1 = new DeleteANode();
-		head = obj1.deleteNode(head,6);
+		InsertionOfNode obj2 = new InsertionOfNode();
+		head = obj2.insertNode(head,6,2);
 		Node temp = head;
 		while(temp != null){
 			System.out.print(temp.data + " ");
