@@ -1,6 +1,6 @@
 
 public class ConvertingArrayToLinkedList{
-	static Node convertArrToLL(int[] arr){
+	public static Node convertArrToLL(int[] arr){
 		Node head = new Node(arr[0], null);
 		Node mover = head;
 		for(int i = 1; i<arr.length; i++){
