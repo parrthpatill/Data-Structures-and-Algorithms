@@ -20,14 +20,22 @@ public class Main{
 		// }
 
 		InsertionInDll obj3 = new InsertionInDll();
+		// Node head = obj1.convertArrToDll(arr);
+		// obj3.insertBeforeNode(head.next.next, -1);
+		// Node temp = head;
+		// for(int i = 0; i<arr.length+1; i++){
+		// 	System.out.print(temp.data + " ");
+		// 	temp = temp.next;
+		// }
+
+		ReverseDll obj4 = new ReverseDll();
 		Node head = obj1.convertArrToDll(arr);
-		obj3.insertBeforeNode(head.next.next, -1);
+		head = obj4.reverseDllOptimal(head);
 		Node temp = head;
-		for(int i = 0; i<arr.length+1; i++){
+		while(temp != null){
 			System.out.print(temp.data + " ");
 			temp = temp.next;
 		}
-
 
 	}
 }

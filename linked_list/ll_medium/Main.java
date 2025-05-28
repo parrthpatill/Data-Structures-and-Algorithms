@@ -13,13 +13,16 @@ public class Main{
 	public static void main(String[] args){
 		Main obj = new Main();
 		MiddleNodeLL obj1 = new MiddleNodeLL();
+
+		//middle element
 		int[] arr = {1,2,3,5,6,4};
 		Node head = obj.convertArrToLL(arr);
 		Node temp = head;
 		System.out.print(obj1.middleNodeLLOptimal(head));
-		// while(temp != null){
-		// 	System.out.print(obj1.middleNodeLLBrute());
-		// 	temp = temp.next;
-		// }
+		while(temp != null){
+			System.out.print(obj1.middleNodeLLBrute());
+			temp = temp.next;
+		}
+
 	}
 }
