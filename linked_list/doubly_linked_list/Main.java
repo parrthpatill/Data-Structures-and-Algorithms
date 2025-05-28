@@ -10,14 +10,24 @@ public class Main{
 		// }
 
 		DeletionInDll obj2 = new DeletionInDll();
-		Node head = obj1.convertArrToDll(arr);
+		// Node head = obj1.convertArrToDll(arr);
 		// head = obj2.deleteKthElement(head,4);
-		obj2.deleteNode(head.next.next);
+		// obj2.deleteNode(head.next.next);
+		// Node temp = head;
+		// for(int i = 0; i<arr.length -1; i++){
+		// 	System.out.print(temp.data + " ");
+		// 	temp = temp.next;
+		// }
+
+		InsertionInDll obj3 = new InsertionInDll();
+		Node head = obj1.convertArrToDll(arr);
+		obj3.insertBeforeNode(head.next.next, -1);
 		Node temp = head;
-		for(int i = 0; i<arr.length -1; i++){
+		for(int i = 0; i<arr.length+1; i++){
 			System.out.print(temp.data + " ");
 			temp = temp.next;
 		}
+
 
 	}
 }
