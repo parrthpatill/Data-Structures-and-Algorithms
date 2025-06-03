@@ -19,7 +19,7 @@ public class detectLoopInLL{
 	boolean detectLoopOptimal(Node head){
 		Node fast = head;
 		Node slow = head;
-		while(fast != null){
+		while(fast != null && fast.next != null){
 			slow = slow.next;
 			fast = fast.next.next;
 			if(slow == fast) return true;
