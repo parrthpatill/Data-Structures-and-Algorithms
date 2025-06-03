@@ -1,4 +1,5 @@
 public class LengthOfLoop{
+	
 	int lengthOfLoopBrute(Node head){
 		if(head == null || head.next == null) return 0;
 		Node temp = head;

@@ -1,6 +1,6 @@
 public class reverseLL{
 	// iterative 
-	Node reverseLLIterative(Node head){
+	static Node reverseLLIterative(Node head){
 		if(head == null || head.next == null) return head;
 		Node current = head;
 		Node prev = null;
