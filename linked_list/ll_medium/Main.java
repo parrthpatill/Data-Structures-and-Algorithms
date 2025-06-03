@@ -14,16 +14,15 @@ public class Main{
 		Main obj = new Main();
 		MiddleNodeLL obj1 = new MiddleNodeLL();
 		reverseLL obj2 = new reverseLL();
+		detectLoopInLL obj3 = new detectLoopInLL();
 
 		int[] arr = {1,2,3,5,6,4};
 		Node head = obj.convertArrToLL(arr);
-		Node temp = obj2.reverseLLRecursive(head);
-		// System.out.print(obj1.middleNodeLLOptimal(head));
-		while(temp != null){
-			System.out.print(temp.data+" ");
-			temp = temp.next;
-		}
-
-
+		// Node temp = obj3.detectLoopBrute(head);
+		System.out.print(obj3.detectLoopBrute(head));
+		// while(temp != null){
+		// 	System.out.print(temp.data+" ");
+		// 	temp = temp.next;
+		// }
 	}
 }
