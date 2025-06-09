@@ -43,7 +43,7 @@ public class QueueUsingArray{
 
 	int front(){
 		if(currSize == 0) {
-			System.out.println("Stack Empty");
+			System.out.println("Queue Empty");
 			return 220905;
 		}
 		return queue[start];
