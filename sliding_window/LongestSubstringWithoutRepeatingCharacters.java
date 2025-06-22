@@ -32,4 +32,21 @@ public class LongestSubstringWithoutRepeatingCharacters{
 		}
 		return maxLen;
 	}
+
+	int longestSubstringWithoutRepeatingCharactersMostOptimal(String s){
+		int l = 0, r = 0, maxLen = 0;
+		int[] hash = new int[256];
+		while(r < s.length()){
+			if(hash[s.charAt(r)] != 0){
+				if(hash[s.charAt(r)] >= l){
+					l = hash[s.charAt(r)];
+				}
+			}
+			hash[s.charAt(r)] = r+1;
+			maxLen = Integer.max(maxLen, r-l+1);
+			r++;
+		}
+		return maxLen;
+	}
+
 }

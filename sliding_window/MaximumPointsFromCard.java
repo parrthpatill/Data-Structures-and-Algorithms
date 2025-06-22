@@ -15,4 +15,5 @@ public class MaximumPointsFromCard{
 		}
 		return maxPoints;
 	}
+
 }
